@@ -52,11 +52,14 @@ const usuariosPost = async (req = request, res = response) => {
 
 const usuariosDelete =  async (req , res = response) => {
     const { id } =  req.params;
-    //Borrar usuario
-    // const usuario = await Usuario.findByIdAndDelete( id );
+    const uid = req.uid;
+    
     const usuario = await Usuario.findByIdAndUpdate( id, { estado: false });
+    // Usuario Autenticado
+    // const usuarioAutentucado = req.usuarioAuth;
+
     res.json({
-        usuario
+        usuario                
     });
 }
 
