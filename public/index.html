@@ -34,14 +34,14 @@
         let url = (window.location.hostname.includes('localhost')) ?
             'http://localhost:8080/api/auth/google' :
             'https://restserver-07ricardo-rincon.herokuapp.com/api/auth/google';
-            
+
         function handleCredentialResponse(response) {
 
             const body = {
                 id_token: response.credential
             };
 
-            fetch('http://localhost:8080/api/auth/google',{
+            fetch(url,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
